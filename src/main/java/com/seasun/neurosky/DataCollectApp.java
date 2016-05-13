@@ -92,7 +92,7 @@ public class DataCollectApp extends PApplet implements EventHandle{
 		paramMap.put("attention", attention);
 		paramMap.put("meditation", meditation);
 		paramMap.put("time", time.toString().replace("T", " "));
-		jdbc.update("insert into esense(attention, meditation, receive_time) values(:sig, :time)", paramMap);
+		jdbc.update("insert into esense(attention, meditation, receive_time) values(:attention, :attention, :time)", paramMap);
 	}
 	
 

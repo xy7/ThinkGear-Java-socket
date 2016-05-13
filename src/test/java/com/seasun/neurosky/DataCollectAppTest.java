@@ -15,10 +15,13 @@ public class DataCollectAppTest {
 		dca.initJdbc();
 		
 		Map<String, Object> para = new HashMap<>();
-		LocalDateTime ldt = LocalDateTime.now();
-		para.put("t", ldt.toString().substring(0, 19).replace("T", " ") + "." + ldt.getNano());
-		para.put("c", 13);
-		dca.jdbc.update("insert into test(t, c) values(:t, :c)", para);
+		LocalDateTime time = LocalDateTime.now();
+		
+		dca.poorSignalEvent(time, 1);
+		dca.blinkEvent(time, 10);
+		dca.eegPowerEvent(time, 1, 2, 3, 4, 5, 6, 7, 8);
+		dca.rawEegEvent(time, 10, 0);
+		dca.esenseEvent(time, 20, 20);
 	}
 
 }
