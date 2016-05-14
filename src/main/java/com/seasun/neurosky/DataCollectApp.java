@@ -43,6 +43,7 @@ public class DataCollectApp extends PApplet implements EventHandle{
 		try {
 			neuroSocket.start();
 		} catch (Exception e) {
+			println(e.toString());
 			println("Is ThinkGear running??");
 		}
 		smooth();
@@ -87,7 +88,7 @@ public class DataCollectApp extends PApplet implements EventHandle{
 	public void esenseEvent(LocalDateTime time, int attentionLevel, int meditationLevel){
 		this.attention = attentionLevel;
 		this.meditation = meditationLevel;
-		println(time + " attentionLevel: " + attentionLevel + " meditationLevel" + meditationLevel);
+		println(time + " attentionLevel: " + attentionLevel + " meditationLevel: " + meditationLevel);
 		Map<String, Object> paramMap = new HashMap<>();
 		paramMap.put("attention", attention);
 		paramMap.put("meditation", meditation);
